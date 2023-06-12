@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:villagebanking/utilities/navigators.dart';
+import 'package:villagebanking/utilities/dimension_methods.dart';
 import 'package:villagebanking/widgets/custom_buttons.dart';
 import 'package:villagebanking/widgets/custom_text.dart';
 import 'package:villagebanking/widgets/custom_text_field.dart';
@@ -18,67 +18,89 @@ class SigningPage extends StatefulWidget {
 
 class _SigningPageState extends State<SigningPage> {
   bool obscurePassword = true;
+  late final TextEditingController _emailController;
+  late final TextEditingController _passwordController;
+
+  @override
+  void initState() {
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    //AuthService authProvider = AuthService.firebase();
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
-          padding:
-              const EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 64),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                IconButton(
-                  onPressed: () => navigatePop(context),
-                  icon: const Icon(
-                    Icons.arrow_back,
-                  ),
-                ),
-                const Text(
-                  "Your path to\nawesome\nbanking",
+          padding: EdgeInsets.only(
+            left: proportionalWidth(screenWidth, 30),
+            right: proportionalWidth(screenWidth, 30),
+            top: proportionalHeight(screenHeight, 0),
+            bottom: proportionalHeight(screenHeight, 64),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Spacer(),
+              Center(
+                child: Text(
+                  "Your path to\nawesome banking",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 28,
+                    fontSize: proportionalHeight(screenHeight, 28),
                   ),
                 ),
-                const SizedBox(
-                  height: 128,
-                ),
-                CustomText(
-                  text: widget.signingType == Signing.signIn
-                      ? "Sign In"
-                      : "Sign Up",
-                  fontSize: 28,
-                  color: const Color(0xFF3A3A3A),
-                ),
-                const SizedBox(
-                  height: 200,
-                ),
-                const EmailTextField(),
-                const SizedBox(height: 28),
-                const PasswordTextField(),
-                const SizedBox(height: 24),
-                TextButton(
-                  onPressed: () {},
-                  child: const CustomText(
-                      text: "Forgot Password",
-                      fontSize: 16,
-                      color: Color(0xFF2B47FC),
-                      fontWeight: FontWeight.normal),
-                ),
-                const SizedBox(height: 30),
-                CustomElevatedButton(
-                  text: widget.signingType == Signing.signIn
-                      ? "Sign in"
-                      : "Sign up",
-                  onPressed: widget.onPressed,
-                ),
-              ],
-            ),
+              ),
+              const Spacer(),
+              CustomText(
+                text: widget.signingType == Signing.signIn
+                    ? "Sign In"
+                    : "Sign Up",
+                fontSize: proportionalHeight(screenHeight, 28),
+                color: const Color(0xFF3A3A3A),
+              ),
+              SizedBox(
+                height: proportionalHeight(screenHeight, 27),
+              ),
+              const EmailTextField(),
+              SizedBox(
+                height: proportionalHeight(screenHeight, 28),
+              ),
+              const PasswordTextField(),
+              SizedBox(
+                height: proportionalHeight(screenHeight, 24),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: CustomText(
+                    text: "Forgot Password",
+                    fontSize: proportionalHeight(screenHeight, 16),
+                    color: const Color(0xFF2B47FC),
+                    fontWeight: FontWeight.normal),
+              ),
+              SizedBox(
+                height: proportionalHeight(screenHeight, 40),
+              ),
+              CustomElevatedButton(
+                text: widget.signingType == Signing.signIn
+                    ? "Sign in"
+                    : "Sign up",
+                onPressed: widget.onPressed,
+              ),
+            ],
           ),
         ),
       ),

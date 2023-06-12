@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:villagebanking/utilities/dimension_methods.dart';
 import 'package:villagebanking/widgets/custom_text.dart';
 
 class PasswordTextField extends StatefulWidget {
@@ -10,38 +11,46 @@ class PasswordTextField extends StatefulWidget {
 
 class _PasswordTextFieldState extends State<PasswordTextField> {
   bool obscurePassword = true;
+
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomText(
+        CustomText(
           text: "Password",
-          fontSize: 14,
-          color: Color(0xFFB9B9B9),
+          fontSize: proportionalHeight(screenHeight, 14),
+          color: const Color(0xFFB9B9B9),
           fontWeight: FontWeight.normal,
         ),
-        const SizedBox(height: 13),
+        SizedBox(
+          height: proportionalHeight(screenHeight, 13),
+        ),
         TextField(
           obscureText: obscurePassword,
           decoration: InputDecoration(
-              suffixIcon: obscurePassword
-                  ? IconButton(
-                      onPressed: () {
-                        setState(() {
-                          obscurePassword = false;
-                        });
-                      },
-                      icon: const Icon(Icons.visibility_off))
-                  : IconButton(
-                      onPressed: () {
-                        setState(() {
-                          obscurePassword = true;
-                        });
-                      },
-                      icon: const Icon(Icons.visibility)),
-              hintText: "Enter password",
-              hintStyle: const TextStyle(fontSize: 14)),
+            suffixIcon: obscurePassword
+                ? IconButton(
+                    onPressed: () {
+                      setState(() {
+                        obscurePassword = false;
+                      });
+                    },
+                    icon: const Icon(Icons.visibility_off))
+                : IconButton(
+                    onPressed: () {
+                      setState(() {
+                        obscurePassword = true;
+                      });
+                    },
+                    icon: const Icon(Icons.visibility)),
+            hintText: "Enter password",
+            hintStyle: TextStyle(
+              fontSize: proportionalHeight(screenHeight, 14),
+            ),
+          ),
         ),
       ],
     );
@@ -57,24 +66,32 @@ class EmailTextField extends StatefulWidget {
 
 class _EmailTextFieldState extends State<EmailTextField> {
   bool isEmailValid = false;
+
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomText(
+        CustomText(
           text: "Email address",
-          fontSize: 14,
-          color: Color(0xFFB9B9B9),
+          fontSize: proportionalHeight(screenHeight, 14),
+          color: const Color(0xFFB9B9B9),
           fontWeight: FontWeight.normal,
         ),
-        const SizedBox(height: 16),
+        SizedBox(
+          height: proportionalHeight(screenHeight, 16),
+        ),
         TextField(
           decoration: InputDecoration(
-              hintText: "Enter email",
-              hintStyle: const TextStyle(fontSize: 14),
-              suffixIcon:
-                  isEmailValid ? const Icon(Icons.check) : const SizedBox()),
+            hintText: "Enter email",
+            hintStyle: TextStyle(
+              fontSize: proportionalHeight(screenHeight, 16),
+            ),
+            suffixIcon:
+                isEmailValid ? const Icon(Icons.check) : const SizedBox(),
+          ),
         ),
       ],
     );
