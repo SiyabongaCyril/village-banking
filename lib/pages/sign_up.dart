@@ -13,7 +13,8 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return SigningPage(
-        signingType: Signing.signUp,
-        onPressed: () => navigateAndPushNamed(context, verify));
+      signingType: Signing.signUp,
+      onPressed: () => navigateAndPushNamed(context, verifyPhone),
+    );
   }
 }
