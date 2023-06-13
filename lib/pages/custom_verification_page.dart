@@ -101,7 +101,7 @@ class Verify extends StatelessWidget {
             ),
             CustomFilledButton(
               onPressed: verificationType == VerificationType.phoneNumber
-                  ? () => navigatePushNamedAndRemoveUntil(context, verifyOtp)
+                  ? () => navigateAndPushNamed(context, verifyOtp)
                   : () {},
               text: verificationType == VerificationType.phoneNumber
                   ? "Get OTP "

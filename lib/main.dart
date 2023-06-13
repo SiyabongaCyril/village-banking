@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:villagebanking/auth/village_app_auth.dart';
 import 'package:villagebanking/pages/verify_otp.dart';
 import 'package:villagebanking/pages/verify_phone.dart';
 import 'package:villagebanking/pages/welcome.dart';
@@ -10,6 +11,7 @@ import 'package:villagebanking/utilities/navigators.dart';
 void main() {
   //disable landscape
   WidgetsFlutterBinding.ensureInitialized();
+  AppAuth.auth.initialise();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
