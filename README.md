@@ -22,9 +22,8 @@ Aimed:
 - All the necessary group statistics to help the members keep track of all transactions and activities.
 - Users can track personal and group finances with real-time financial analytics e.g. see who is saving and borrowing every month.
 - Shows who has paid and who hasn’t paid for transparency purposes.
-- Group roles to maintain order in groups. The following are proposed roles:
-Admin\n
-Treasury
+- Group roles to maintain order in groups. The following are proposed roles:\n
+Admin & Treasury
 - Proposed (optional) features:\n
 A chat feature that can enable members to keep each other up to date with group activities.
 
