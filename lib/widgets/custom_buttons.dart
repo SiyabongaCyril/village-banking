@@ -23,7 +23,10 @@ class CustomElevatedButton extends StatelessWidget {
       decoration: isOutlined
           ? BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(28)),
-              border: Border.all(color: const Color(0xFF2B47FC)))
+              border: Border.all(
+                color: const Color(0xFF2B47FC),
+              ),
+            )
           : BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -34,7 +37,9 @@ class CustomElevatedButton extends StatelessWidget {
                       const Offset(5, 5), // changes the shadow direction (x,y)
                 ),
               ],
-              borderRadius: const BorderRadius.all(Radius.circular(28)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(28),
+              ),
               gradient: const LinearGradient(colors: [
                 Color(0xFFE26C5C),
                 Color(0xFF1041F9),
@@ -84,7 +89,9 @@ class CustomFilledButton extends StatelessWidget {
       width: proportionalWidth(screenWidth, 318),
       height: proportionalHeight(screenHeight, 72),
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(28)),
+        borderRadius: BorderRadius.all(
+          Radius.circular(28),
+        ),
         color: Color(0xFF2B47FC),
       ),
       child: ElevatedButton(

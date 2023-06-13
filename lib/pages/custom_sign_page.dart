@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:villagebanking/utilities/controllers.dart';
 import 'package:villagebanking/utilities/dimension_methods.dart';
 import 'package:villagebanking/widgets/custom_buttons.dart';
 import 'package:villagebanking/widgets/custom_text.dart';
@@ -18,22 +19,6 @@ class SigningPage extends StatefulWidget {
 
 class _SigningPageState extends State<SigningPage> {
   bool obscurePassword = true;
-  late final TextEditingController _emailController;
-  late final TextEditingController _passwordController;
-
-  @override
-  void initState() {
-    _emailController = TextEditingController();
-    _passwordController = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
