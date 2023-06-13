@@ -1,16 +1,49 @@
-# villagebanking
 
-A new Flutter project.
+# Village Banking
 
-## Getting Started
+A flutter project developed for the [PowerLearnProject](https://powerlearnproject.org/) level 2 bootcamp. 
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Introduction
+This is a village banking app that aims to enable members of a village community to form a group of 3 - 30 people to save collectively, with the option for group members to borrow from the accumulated funds without collateral.
+
+
+## Features
+
+- 2-Factor Authentication:
+Email Authentication\
+OTP Authentication
+
+
+
+### Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/SiyabongaCyril/village-banking.git
+```
+
+Go to the project directory
+
+```bash
+  cd villagebanking
+```
+
+Install dependencies
+
+```bash
+  flutter pub get
+```
+
+Run the app in debug mode
+
+```bash
+  flutter run
+```
+
+
+
+
